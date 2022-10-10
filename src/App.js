@@ -19,6 +19,7 @@ function App () {
         },
         {
           path: '/topics',
+          loader: async () => fetch( 'https://openapi.programming-hero.com/api/quiz' ),
           element: <Topics></Topics>,
         },
         {
