@@ -10,7 +10,7 @@ const Topic = ( { quiz } ) => {
             <div className='flex justify-between bg-white mt-7'>
                 <h3 className='text-2xl'>{ name }</h3>
                 <p className='mt-2'>Total { total } quiz's</p>
-                <button><Link className='flex bg-blue-600 text-white font-semibold p-2 px-2 rounded-md gap-2 hover:bg-blue-800' to={ `topic/${ id }` }>Let's Start <ArrowRightIcon className="h-6 w-6 text-white-500" /></Link></button>
+                <button><Link className='flex bg-blue-600 text-white font-semibold p-2 px-2 rounded-md gap-2 hover:bg-blue-800' to={ `topics/topic/${ id }` }>Let's Start <ArrowRightIcon className="h-6 w-6 text-white-500" /></Link></button>
             </div>
         </div>
     );
