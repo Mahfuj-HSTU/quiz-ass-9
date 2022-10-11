@@ -8,7 +8,7 @@ const Topic = ( { quiz } ) => {
         <div className='lg:p-6 lg:px-12 p-4  shadow-lg shadow-slate-400 mb-20'>
             <img className='bg-slate-400 mx-auto' src={ logo } alt="" />
             <div className='sm:flex-none md:flex-none lg:flex justify-between bg-white mt-7'>
-                <div className='flex justify-between gap-2 mb-4'>
+                <div className='flex justify-between gap-6 mb-4'>
                     <h3 className='text-2xl'>{ name }</h3>
                     <p className='mt-2'>Total { total } quiz's</p>
                 </div>

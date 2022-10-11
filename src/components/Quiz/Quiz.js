@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { EyeIcon } from '@heroicons/react/24/solid'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 const Quiz = ( { qus, size } ) => {
+    const [ color, setColor ] = useState( ' ' );
     const { question, options, correctAnswer, id } = qus;
 
     // check the answer and show a message in a toast.
@@ -14,20 +15,23 @@ const Quiz = ( { qus, size } ) => {
             toast.success( 'Your Selected Answer is Correct', {
                 position: toast.POSITION.TOP_CENTER
             } );
+            setColor( 'bg-green-600' );
         }
         else {
             toast.error( 'Oops!! Your Selected Answer is Wrong', {
                 position: toast.POSITION.TOP_CENTER
             } );
+            setColor( 'bg-red-600' );
         }
     }
 
-    // Show the message in a toast
+    // Show the correct answer in a toast
     const showCorrectAnswer = () => {
         toast.dark( 'Answer is : ' + correctAnswer, {
             position: toast.POSITION.TOP_CENTER
         } );
     }
+
 
 
     return (
@@ -36,10 +40,10 @@ const Quiz = ( { qus, size } ) => {
                 <h2 className='md:text-2xl sm:text-xl font-semibold text-left pb-4'>{ <u className='text-blue-800'>Quiz { size } : </u> } { question } </h2>
                 <h3><EyeIcon onClick={ showCorrectAnswer } className="h-6 w-6 cursor-pointer p-0" /></h3>
             </div>
-            <div className='text-left md:ml-9 ml-2'>
+            <div className='text-left md:ml-7 ml-2 grid lg:grid-cols-2 gap-2' >
                 {
-                    options.map( option => <div>
-                        <input className='mr-2 cursor-pointer' onClick={ () => showToastMessage( { option } ) } type="radio" name={ id } value="option" id="xs" />
+                    options.map( option => <div className={ ( { isActive } ) => isActive ? setColor : undefined }>
+                        < input className='mr-2 cursor-pointer' onClick={ () => showToastMessage( { option } ) } type="radio" name={ id } value="option" id="xs" />
                         <label className='sm:text-lg text-sm' for="xs">{ option }</label>
                         <ToastContainer />
                     </div> )
@@ -50,3 +54,4 @@ const Quiz = ( { qus, size } ) => {
 };
 
 export default Quiz;
+//'rounded-md p-2 ' + color

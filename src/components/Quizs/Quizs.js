@@ -1,10 +1,10 @@
-import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Quiz from '../Quiz/Quiz';
 
 const Quizs = () => {
     const quiz = useLoaderData();
     const { name, questions } = quiz.data;
+
 
     return (
         <div className='mt-12'>
@@ -13,6 +13,7 @@ const Quizs = () => {
                 {
                     questions.map( ( qus, index ) => <Quiz key={ qus.id } qus={ qus } size={ index + 1 }></Quiz> )
                 }
+
             </div>
         </div>
     );
