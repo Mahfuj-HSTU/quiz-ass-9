@@ -1,10 +1,29 @@
 import React from 'react';
+import Options from '../options/Options';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Quiz = ( { qus, size } ) => {
-    // console.log( qus );
-    const { question, options } = qus;
+    const { question, options, correctAnswer, id } = qus;
     // console.log( options )
-    // console.log( size );
+    // console.log( correctAnswer, id );
+
+    const showToastMessage = ( option ) => {
+        const selectedAnswer = Object.values( option ).toString()
+        if ( selectedAnswer === correctAnswer ) {
+            toast.success( 'Your Selected Answer is Correct', {
+                position: toast.POSITION.TOP_CENTER
+            } );
+        }
+        else {
+            toast.error( 'Oops!! Your Selected Answer is Wrong', {
+                position: toast.POSITION.TOP_CENTER
+            } );
+        }
+
+    }
+
 
     return (
         <div className='p-6 px-12 w-3/4 mx-auto shadow-lg shadow-slate-400 mb-20'>
@@ -12,9 +31,9 @@ const Quiz = ( { qus, size } ) => {
             <div className='text-left ml-9'>
                 {
                     options.map( option => <div>
-                        {
-                            <h3 >{ option }</h3>
-                        }
+                        <input className='mr-2 cursor-pointer' onClick={ () => showToastMessage( { option } ) } type="radio" name={ id } value="option" id="xs" />
+                        <label for="xs">{ option }</label>
+                        <ToastContainer />
                     </div> )
                 }
             </div>

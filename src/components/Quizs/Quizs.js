@@ -6,7 +6,6 @@ import Quiz from '../Quiz/Quiz';
 const Quizs = () => {
     const quiz = useLoaderData();
     const { name, questions } = quiz.data;
-    let size = Object.entries( questions ).length;
     // console.log( size )
     // console.log( quiz );
     return (
