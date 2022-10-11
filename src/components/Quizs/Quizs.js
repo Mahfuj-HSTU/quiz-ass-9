@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { useLoaderData } from 'react-router-dom';
 import Quiz from '../Quiz/Quiz';
 
