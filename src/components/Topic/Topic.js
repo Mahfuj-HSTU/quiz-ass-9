@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom';
 const Topic = ( { quiz } ) => {
     const { id, name, logo, total } = quiz;
     return (
-        <div className='p-6 px-12 shadow-lg shadow-slate-400 mb-20'>
+        <div className='lg:p-6 lg:px-12 p-4  shadow-lg shadow-slate-400 mb-20'>
             <img className='bg-slate-400 mx-auto' src={ logo } alt="" />
-            <div className='flex justify-between bg-white mt-7'>
-                <h3 className='text-2xl'>{ name }</h3>
-                <p className='mt-2'>Total { total } quiz's</p>
-                <button><Link className='flex bg-blue-600 text-white font-semibold p-2 px-2 rounded-md gap-2 hover:bg-blue-800' to={ `topics/topic/${ id }` }>Let's Start <ArrowRightIcon className="h-6 w-6 text-white-500" /></Link></button>
+            <div className='sm:flex-none md:flex-none lg:flex justify-between bg-white mt-7'>
+                <div className='flex justify-between gap-2 mb-4'>
+                    <h3 className='text-2xl'>{ name }</h3>
+                    <p className='mt-2'>Total { total } quiz's</p>
+                </div>
+                <button><Link className='flex bg-blue-600 text-white sm:text-sm font-semibold p-2 px-2 rounded-md gap-1 md:gap-2 hover:bg-blue-800' to={ `topics/topic/${ id }` }>Let's Start <ArrowRightIcon className="h-6 w-6 text-white-500" /></Link></button>
             </div>
         </div>
     );
