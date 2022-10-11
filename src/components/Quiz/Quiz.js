@@ -6,9 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Quiz = ( { qus, size } ) => {
     const { question, options, correctAnswer, id } = qus;
-    // console.log( options )
-    // console.log( correctAnswer, id );
 
+    // check the answer and show a message in a toast.
     const showToastMessage = ( option ) => {
         const selectedAnswer = Object.values( option ).toString()
         if ( selectedAnswer === correctAnswer ) {
@@ -23,8 +22,9 @@ const Quiz = ( { qus, size } ) => {
         }
     }
 
+    // Show the message in a toast
     const showCorrectAnswer = () => {
-        toast.success( correctAnswer, {
+        toast.dark( 'Answer : ' + correctAnswer, {
             position: toast.POSITION.TOP_CENTER
         } );
     }
@@ -48,6 +48,5 @@ const Quiz = ( { qus, size } ) => {
         </div >
     );
 };
-{/* <h2> Quiz { question } </h2> */ }
 
 export default Quiz;
